@@ -1,0 +1,1 @@
+This is a Rock, Paper, Scissors game with a UI built with vanilla JavaScript.
