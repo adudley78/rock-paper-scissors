@@ -14,8 +14,7 @@ function play(e) {
     const playerChoice = e.target.id;
     const computerChoice = getComputerChoice();
     const winner = getWinner(playerChoice, computerChoice);
-
-    console.log(playerChoice, computerChoice, winner);
+    showWinner(winner, computerChoice);
 };
 
 // Get computers choice
@@ -55,5 +54,67 @@ function getWinner(p, c) {
     }
 }
 
+// Show winner and computer choice and incrememt score
+function showWinner(winner, computerChoice) {
+    if(winner = 'player') {
+        // Inc player score
+        scoreboard.player++;
+        //Show modal result
+        result.innerHTML = 
+        `
+        <h1 class="text-win">Winner, winner chicken dinner!</h1>
+        <i class ="fas fa-hand-${computerChoice} fa-10x"
+        <p>Computer chose <strong>${computerChoice}</strong></p>
+        `;
+    } else if(winner === 'computer') {
+        // Inc computer score
+        scoreboard.computer++;
+        //Show modal result
+        result.innerHTML =
+        `
+        <h1 class="text-win">Sorry, you lose. Try again!</h1>
+        <i class ="fas fa-hand-${computerChoice} fa-10x"
+        <p>Computer chose <strong>${computerChoice}</strong></p>
+        `;
+    } else {
+        result.innerHTML =
+        `
+        <h1>Aww, it's a draw!</h1>
+        <i class ="fas fa-hand-${computerChoice} fa-10x"
+        <p>Computer chose <strong>${computerChoice}</strong></p>
+        `;
+    }
+    // Show score
+    score.innerHTML = 
+    `
+    <p>Player: ${scoreboard.player}</p>
+    <p>Computer: ${scoreboard.computer}</p>
+    `;
+
+    modal.style.display = 'block'
+}
+
+// Restart game
+function restartGame() {
+    scoreboard.player = 0;
+    scoreboard.computer = 0;
+    score.innerHTML = 
+    `
+    <p>Player: 0</p>
+    <p>Computer: 0</p>
+    `;
+
+    restart.style.display = 'none'
+}
+
+// Clear modal
+function clearModal(e) {
+    if(e.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
 // Event listeners
 choices.forEach(choice => choice.addEventListener('click', play));
+window.addEventListener('click', clearModal);
+restart.addEventListener('click', restartGame);
