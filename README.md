@@ -1,1 +1,1 @@
-This is a Rock, Paper, Scissors game with a UI built with vanilla JavaScript.
+This is a Rock, Paper, Scissors game with a UI that's built with HTML, CSS, and vanilla JavaScript. Have fun!

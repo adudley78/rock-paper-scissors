@@ -62,9 +62,10 @@ function showWinner(winner, computerChoice) {
         //Show modal result
         result.innerHTML = 
         `
-        <h1 class="text-win">Winner, winner chicken dinner!</h1>
+        <h1 class="text-win">You won!</h1>
         <i class ="fas fa-hand-${computerChoice} fa-10x"></i>
-        <p>Computer Chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></p>
+        <h2>Computer Chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></h2>
+        <p>Click anywhere outside this window to play again.</p>
         `;
     } else if(winner === 'computer') {
         // Inc computer score
@@ -72,16 +73,18 @@ function showWinner(winner, computerChoice) {
         //Show modal result
         result.innerHTML =
         `
-        <h1 class="text-win">Sorry, you lose. Try again!</h1>
+        <h1 class="text-win">You lost!</h1>
         <i class ="fas fa-hand-${computerChoice} fa-10x"></i>
-        <p>Computer Chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></p>
+        <h2>Computer Chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></h2>
+        <p>Click anywhere outside this window to play again.</p>
         `;
     } else {
         result.innerHTML =
         `
-        <h1>Aww, it's a draw!</h1>
+        <h1>Draw!</h1>
         <i class ="fas fa-hand-${computerChoice} fa-10x"></i>
-        <p>Computer Chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></p>
+        <h2>Computer Chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></h2>
+        <p>Click anywhere outside this window to play again.</p>
         `;
     }
     // Show score
