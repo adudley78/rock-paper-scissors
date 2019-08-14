@@ -31,22 +31,22 @@ function getComputerChoice() {
 
 // get game winner
 function getWinner(p, c) {
-    if(p === c) {
+    if (p === c) {
         return 'draw';
-    } else if(p === 'rock') {
-        if(c === 'paper') {
+    } else if (p === 'rock') {
+        if (c === 'paper') {
             return 'computer';
         } else {
             return 'player';
         }
-    } else if(p === 'paper') {
-        if(c === 'scissors') {
+    } else if (p === 'paper') {
+        if (c === 'scissors') {
             return 'computer';
         } else {
             return 'player';
-        } 
-    } else if(p === 'scissors') {
-        if(c === 'rock') {
+        }
+    } else if (p === 'scissors') {
+        if (c === 'rock') {
             return 'computer';
         } else {
             return 'player';
@@ -56,15 +56,15 @@ function getWinner(p, c) {
 
 // Show winner and computer choice and incrememt score
 function showWinner(winner, computerChoice) {
-    if(winner = 'player') {
+    if(winner === 'player') {
         // Inc player score
         scoreboard.player++;
         //Show modal result
         result.innerHTML = 
         `
         <h1 class="text-win">Winner, winner chicken dinner!</h1>
-        <i class ="fas fa-hand-${computerChoice} fa-10x"
-        <p>Computer chose <strong>${computerChoice}</strong></p>
+        <i class ="fas fa-hand-${computerChoice} fa-10x"></i>
+        <p>Computer Chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></p>
         `;
     } else if(winner === 'computer') {
         // Inc computer score
@@ -73,15 +73,15 @@ function showWinner(winner, computerChoice) {
         result.innerHTML =
         `
         <h1 class="text-win">Sorry, you lose. Try again!</h1>
-        <i class ="fas fa-hand-${computerChoice} fa-10x"
-        <p>Computer chose <strong>${computerChoice}</strong></p>
+        <i class ="fas fa-hand-${computerChoice} fa-10x"></i>
+        <p>Computer Chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></p>
         `;
     } else {
         result.innerHTML =
         `
         <h1>Aww, it's a draw!</h1>
-        <i class ="fas fa-hand-${computerChoice} fa-10x"
-        <p>Computer chose <strong>${computerChoice}</strong></p>
+        <i class ="fas fa-hand-${computerChoice} fa-10x"></i>
+        <p>Computer Chose <strong>${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}</strong></p>
         `;
     }
     // Show score
